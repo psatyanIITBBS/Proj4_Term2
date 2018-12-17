@@ -6,10 +6,10 @@
 This project required us to design a PID (proportional/integral/differential) controller for the vehicle to run in the unity based simulator. There were primarily two steps involved. One, to come up with the initial P-I-D values so that the car can move on the track reasonably. Two, the P-I-D values be tuned by applying the general processing flow as described in the earlier lessons or otherwise. The sensors from the simulated vehicle provides cross-track error (CTE), speed, and steering angle data via the local websocket which the PID controller should use to generate the appropriate actuating command for steering and throttle (optional).
 
 [//]: # (Image References)
-[image1]: ./output_images/P_Controller.jpg
-[image2]: ./output_images/PD_Controller.jpg
-[image3]: ./output_images/PID_Controller.jpg
-[image4]: ./output_images/PID_Controller_Twiddle.jpg
+[image1]: ./output_images/P_Controller.png
+[image2]: ./output_images/PD_Controller.png
+[image3]: ./output_images/PID_Controller.png
+[image4]: ./output_images/PID_Controller_Twiddle.png
 
 ## Reflection on the Implementation w.r.t. the Rubric
 
