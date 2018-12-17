@@ -10,17 +10,22 @@ This project required us to design a PID (proportional/integral/differential) co
 
 - *Describe the effect each of the P, I, D components had in your implementation.*
 
+In order to investigate th eeffect of various hyperparameters on the CTE, the CTE data was written to a file and later plotted for visualization and comparison.
+
 The P, or the "Proportional" component provides the "Stiffness" to the dynamical system. It acts like a spring in a spring-mass-damper system. Like a spring pulls (or, pushes) with more force when the mass moves farther away from the neutral position, the P-parameter provides sharper steering when the car is far away from the central line of the road. As the car comes closer and closer to the center, the steering becomes less and less severe. It behaves exactly like the F = -kx term in the spring system. 
 
 ![P_controller](./output_images/P_controller.png)
 
-The D, or "Differential", component counteracts the P component's tendency to ring and overshoot the center line. A properly tuned D parameter will cause the car to approach the center line smoothly without ringing.
+From observing the variation of CTE for the P-controller from the above, the D, or the "Differential" component then was added to the controller in order to control the blowing up of the CTE. The variation with respect to this parameter can be seen in the figure below.
 
 ![PD_controller](./output_images/PD_controller.png)
 
-The I, or "integral", component counteracts a bias in the CTE which prevents the P-D controller from reaching the center line. This bias can take several forms, such as a steering drift (as in the Control unit lessons), but I believe that in this particular implementation the I component particularly serves to reduce the CTE around curves.
+It can be clearly seen that the effect of the D-parameter is to damp the system and to restrict the overshoot by a great amount. However, it can be observed that the steady state error does not come down. That means the vehicle stays away from the center line. Then the necesity for the I-component of the controller was felt.
+
+The I, or the "Integral" component tries to remove this steady state error by accumulating this error and acting so that this error will be reduced thereby bringing the vehicle towards the center. The effect of this parameter on the vehicle dynamics can be seen from the figure below.
 
 ![PID_controller](./output_images/PID_controller.png)
+
 
 
 - *Describe how the final hyperparameters were chosen.*
