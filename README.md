@@ -7,7 +7,7 @@ This project required us to design a PID (proportional/integral/differential) co
 
 [//]: # (Image References)
 
-[image1]: ./output_images/P_Controller.png
+[image1]: ./output_images/P_Controller.png  "P"
 [image2]: ./output_images/PD_Controller.png
 [image3]: ./output_images/PID_Controller.png
 [image4]: ./output_images/PID_Controller_Twiddle.png
@@ -18,7 +18,7 @@ This project required us to design a PID (proportional/integral/differential) co
 
 The P, or the "Proportional" component provides the "Stiffness" to the dynamical system. It acts like a spring in a spring-mass-damper system. Like a spring pulls (or, pushes) with more force when the mass moves farther away from the neutral position, the P-parameter provides sharper steering when the car is far away from the central line of the road. As the car comes closer and closer to the center, the steering becomes less and less severe. It behaves exactly like the F = -kx term in the spring system. 
 
-![alt text][image1]
+![P][image1]
 
 The D, or "Differential", component counteracts the P component's tendency to ring and overshoot the center line. A properly tuned D parameter will cause the car to approach the center line smoothly without ringing.
 
