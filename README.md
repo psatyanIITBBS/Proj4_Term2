@@ -26,15 +26,13 @@ The I, or the "Integral" component tries to remove this steady state error by ac
 
 ![PID_controller](./output_images/PID_controller.png)
 
-
+With the above manual tuning the vehicle was able to move around the track quite comfotablyy. However, the auto tuning method could be applid to improve the efficiency of the controller. 
 
 - *Describe how the final hyperparameters were chosen.*
 
-Hyperparameters were tuned manually at first. This was necessary because the narrow track left little room for error, and when attempting to automate parameter optimization (such as Twiddle) it was very common for the car to leave the track, thus invalidating the optimization. Once I found parameters that were able to get the car around the track reliably, I then implemented Twiddle. I felt it necessary to complete a full lap with each change in parameter because it was the only way to get a decent "score" (total error) for the parameter set. For this reason my parameter changes are allowed to "settle in" for 100 steps and are then evaluated for the next 2000 steps. In all, I allowed Twiddle to continue for over 1 million steps (or roughly 500 trips around the track) to fine tune the parameters to their final values (P: 0.134611, I: 0.000270736, D: 3.05349).
+As described in the previous section, the hyperparameters were tuned manually to start with so that the vehicle can traverse the complete track without going out of the road boundaries. With these parameters as the starting point the autotuner algorithm was started which was implemented using the Twiddle Algorithm explained by Sebastian. The auto tuner initially started getting tuned with smaller portions of the track thereby changing the parameters. Then gradually the size of the segments for parameter tuning was increased so that the parameters can be tuned for th ewhole of the track. This step was followed many times to fine tune the arameters  and their their final values were set at (P: 0.134611, I: 0.0107811, D: 9.07742). The results for these hyper parameters are shown in the following graph.
 
 ![PID_controller_Twiddle](./output_images/PID_controller_Twiddle.png)
-
-
 
 ---
 
